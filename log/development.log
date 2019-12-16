@@ -683,3 +683,360 @@ Processing by Devise::RegistrationsController#create as HTML
 Completed 200 OK in 755ms (Views: 147.4ms | ActiveRecord: 23.9ms | Allocations: 28618)
 
 
+Started GET "/signup" for ::1 at 2019-12-17 00:23:00 +0100
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/signup"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/signup" for ::1 at 2019-12-17 00:23:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/signup"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2019-12-17 00:23:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 5.5ms | Allocations: 617)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 45.6ms | Allocations: 4667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 265ms (Views: 163.8ms | ActiveRecord: 18.6ms | Allocations: 19721)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-17 00:23:25 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 205)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 125)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 33.9ms | Allocations: 2152)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 89ms (Views: 81.0ms | ActiveRecord: 0.0ms | Allocations: 7359)
+
+
+Started POST "/users" for ::1 at 2019-12-17 00:23:42 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"fX9r4JtJpesaynyB/Us+VYuvvqFLgEVUteO8kpnkxKxpBkRN4urY7qcVkgOzRhV7GquhO+oGbm+9CMrjQ6wtoQ==", "user"=>{"name"=>"Damie", "email"=>"codepoetlady@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "codepoetlady@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Create (2.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "codepoetlady@gmail.com"], ["encrypted_password", "$2a$11$QRCtd3.CfhwyWExPpV/7AuVienv2h2KhBOBwHNAAie1W.Y59wHd7C"], ["created_at", "2019-12-16 23:23:43.466556"], ["updated_at", "2019-12-16 23:23:43.466556"], ["name", "Damie"]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[35m (19.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 531ms (ActiveRecord: 25.7ms | Allocations: 7753)
+
+
+Started GET "/" for ::1 at 2019-12-17 00:23:43 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 45.4ms | Allocations: 189)
+Completed 200 OK in 68ms (Views: 63.9ms | ActiveRecord: 0.0ms | Allocations: 1033)
+
+
+Started GET "/posts/new" for ::1 at 2019-12-17 00:32:27 +0100
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  
+actionpack (6.0.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (1.9.0) lib/omniauth/builder.rb:64:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/sign_in" for ::1 at 2019-12-17 00:34:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 97ms (ActiveRecord: 31.0ms | Allocations: 9145)
+
+
+Started GET "/" for ::1 at 2019-12-17 00:34:07 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 22.1ms | Allocations: 184)
+Completed 200 OK in 31ms (Views: 27.2ms | ActiveRecord: 0.0ms | Allocations: 970)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-17 00:34:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 17ms (ActiveRecord: 1.7ms | Allocations: 1872)
+
+
+Started GET "/" for ::1 at 2019-12-17 00:34:07 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/codepoet/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.5ms | Allocations: 7)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 464)
+
+
+Started GET "/users" for ::1 at 2019-12-17 00:34:20 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/1" for ::1 at 2019-12-17 00:34:27 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts/new" for ::1 at 2019-12-17 00:34:39 +0100
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for PostsController):
+  
+actionpack (6.0.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+omniauth (1.9.0) lib/omniauth/builder.rb:64:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts/new" for ::1 at 2019-12-17 00:37:29 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"new"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1394)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 2802)
+
+
+  
+ActionView::Template::Error (undefined method `content' for nil:NilClass):
+    1: <div>
+    2:   <%= @post.content%>
+    3: </div>
+    4: <div>
+    5:   <%= link_to  "Delete post", @post, method: :delete %>
+  
+app/views/posts/show.html.erb:2

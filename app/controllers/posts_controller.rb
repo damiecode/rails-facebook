@@ -1,8 +1,14 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-   before_action :user_signed_in?, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   def new
     @post = Post.new
   end
+
+  def show; end
+
+  def edit; end
 
   def create
     @post = Post.new(post_params)
