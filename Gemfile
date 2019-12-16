@@ -5,6 +5,10 @@ git_source(:github) { |_repo| 'https://github.com/marcos-medeiros/rails-facebook
 
 ruby '2.6.5'
 
+# Handles authentication and login methods
+gem 'devise'
+# Handles sign in with facebook account
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
