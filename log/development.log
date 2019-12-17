@@ -1551,3 +1551,29 @@ Processing by PostsController#new as HTML
   Rendered posts/_form.html.erb (Duration: 5.2ms | Allocations: 464)
   Rendered posts/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 759)
 [Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/codepoet/Documents/Microverse/RAILS/rails-facebook/public/packs
+[Webpacker] Hash: c606e7429c8182717263
+Version: webpack 4.41.2
+Time: 46737ms
+Built at: 12/17/2019 5:22:46 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-5836dc17ffa01b00745d.js   1.29 MiB  application  [emitted] [immutable]  application
+js/application-5836dc17ffa01b00745d.js.map   1.43 MiB  application  [emitted] [dev]        application
+         js/custom-0e2e53c399eedef85d21.js   3.87 KiB       custom  [emitted] [immutable]  custom
+     js/custom-0e2e53c399eedef85d21.js.map   3.52 KiB       custom  [emitted] [dev]        custom
+                             manifest.json  668 bytes               [emitted]              
+Entrypoint application = js/application-5836dc17ffa01b00745d.js js/application-5836dc17ffa01b00745d.js.map
+Entrypoint custom = js/custom-0e2e53c399eedef85d21.js js/custom-0e2e53c399eedef85d21.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 807 bytes {application} [built]
+[./app/javascript/packs/custom.js] 0 bytes {custom} [built]
+[./app/javascript/stylesheets/application.scss] 548 bytes {application} [built]
+[./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./app/javascript/stylesheets/application.scss] ./node_modules/css-loader/dist/cjs.js??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./app/javascript/stylesheets/application.scss 666 KiB {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 878 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 8 hidden modules
+
+Completed 200 OK in 60448ms (Views: 60421.7ms | ActiveRecord: 3.4ms | Allocations: 7344)
+
+
