@@ -1,8 +1,10 @@
 <h1>All posts</h1>
-<div>
-   <%= render  "form" %>
-</div>
-<div>
-  <h3>Feed</h3>
-<%= render 'feed' %>
-</div>
+<% if signed_in? %>
+  <div>
+    <%= render  "form" %>
+  </div>
+  <div>
+    <h3>Feed</h3>
+  <%= render 'feed' %>
+  </div>
+<%end%>

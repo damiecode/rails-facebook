@@ -1,8 +1,7 @@
-<% if signed_in? %>
-  <%= form_for( @post) do |f| %>
-  <div>
-    <%= f.label :content, "Whats on your mind?" %>
-    <%= f.text_area :content %>
-  </div>
-  <%= f.submit "submit" %>
+<%= form_with(model:  @post) do |f| %>
+    <div>
+      <%= f.label :content, "Whats on your mind?" %>
+      <%= f.text_area :content %>
+    </div>
+    <%= f.submit "submit" %>
 <%end%>
