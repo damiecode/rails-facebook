@@ -1534,3 +1534,20 @@ puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
 puma (4.3.1) lib/puma/server.rb:472:in `process_client'
 puma (4.3.1) lib/puma/server.rb:328:in `block in run'
 puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts/new" for ::1 at 2019-12-17 17:13:46 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 7.1ms | Allocations: 515)
+  Rendered posts/new.html.erb within layouts/application (Duration: 10.8ms | Allocations: 811)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 176ms (Views: 57.7ms | ActiveRecord: 3.6ms | Allocations: 18377)
+
+
+Started GET "/posts/new" for ::1 at 2019-12-17 17:21:45 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 5.2ms | Allocations: 464)
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 759)
+[Webpacker] Compiling...

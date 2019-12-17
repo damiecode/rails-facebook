@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :find_post, except: [:new, :create, :index]
+  before_action :find_post, except: %i[new create index]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
@@ -28,16 +28,16 @@ class PostsController < ApplicationController
     end
   end
 
-  def def update
-      if @post.update(params[:post][:content])
-        flash[:success] = "Post was successfully updated"
-        redirect_to @post
-      else
-        flash[:error] = "Something went wrong"
-        render 'edit'
-      end
+  def def(_update)
+    if @post.update(params[:post][:content])
+      flash[:success] = 'Post was successfully updated'
+      redirect_to @post
+    else
+      flash[:error] = 'Something went wrong'
+      render 'edit'
+    end
   end
-  
+
   def destroy
     @post.destroy
     redirect_to root_path
