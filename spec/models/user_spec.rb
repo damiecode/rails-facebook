@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    User.create(name: 'test', email: 'test@test.com', password: "foobar", password_confirmation: "foobar")
+    User.create(name: 'test', email: 'test@test.com', password: 'foobar', password_confirmation: 'foobar')
   end
 
   describe '#name' do
     before :each do
-      User.create(name: 'test', email: 'test@test.com', password: "foobar", password_confirmation: "foobar")
+      User.create(name: 'test', email: 'test@test.com', password: 'foobar', password_confirmation: 'foobar')
     end
     it 'doesnt take user without the name' do
       user = User.new
@@ -46,7 +48,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to_not include('is invalid')
     end
 
-  it 'validates email uniquness' do
+    it 'validates email uniquness' do
       user = User.new
       user.name = 'test'
       user.email = 'test@test.com'
