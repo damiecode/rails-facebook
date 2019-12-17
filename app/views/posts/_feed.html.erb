@@ -1,4 +1,6 @@
-<% @posts.each do |p| %>
-  <div> <%= current_user.name %> <br>
-  <%= p.content %>
-<%end%>
+<div class='col'>
+  <% @posts.each do |p| %>
+    <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    <p><%= p.content %></p>
+  <%end%>
+</div>
