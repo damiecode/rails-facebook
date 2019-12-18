@@ -19,16 +19,16 @@ RSpec.describe Likes do
       post '/users/sign_in', params: user_params
     end
 
-    it "increase like count" do
+    it 'increase like count' do
       post "/posts/#{post.id}/like"
 
       expect(post.reload.likes_count).to eq(1)
     end
   end
-  
+
   context 'when not logged in' do
     it 'redirects to login path when trying to like without being logged in' do
-      @like = @post1.likes.build
+      @like = post1.likes.build
 
       expect(response).to redirect_to('/users/sign_in')
     end
