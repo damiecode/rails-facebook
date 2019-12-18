@@ -2,5 +2,20 @@
   <% @posts.each do |p| %>
     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
     <p><%= p.content %></p>
-  <%end%>
+     <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+</div>
+    <div class='row'>
+    <%= form_with(model:  @comment) do |f| %>
+      <div class='form-group row'>
+        <div class='col'>
+          <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+        </div>
+      </div>
+    <% end %>
+  <%end%> 
 </div>
