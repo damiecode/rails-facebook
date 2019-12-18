@@ -9750,3 +9750,521 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 0.7ms | Allocations: 8656)
 
 
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:38:41 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.8ms | Allocations: 620)
+  Rendered posts/_feed.html.erb (Duration: 1.5ms | Allocations: 1436)
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2609)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 4835)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class='col'>
+  <% @posts.each do |p| %>
+    <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    <p><%= p.content %></p>
+      <%= pluralize(p.likes_count, 'like')%>
+     <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+     <%% p.comments.each do |c| %>
+      <p><%= c.content %></p>
+    <%end%>
+</div>
+    <div class='row'>
+    <%= form_with(model:  @comment) do |f| %>
+      <div class='form-group row'>
+        <div class='col'>
+          <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+        </div>
+      </div>
+    <% end %>
+  <%end%> 
+</div>
+
+):
+1:    <div class='col'>
+2:      <% @posts.each do |p| %>
+3:        <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+4:        <p><%= p.content %></p>
+5:          <%= pluralize(p.likes_count, 'like')%>
+6:         <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+7:         <%% p.comments.each do |c| %>
+8:          <p><%= c.content %></p>
+9:        <%end%>
+10:    </div>
+11:        <div class='row'>
+12:        <%= form_with(model:  @comment) do |f| %>
+13:          <div class='form-group row'>
+14:            <div class='col'>
+15:              <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+16:            </div>
+17:          </div>
+18:          <div class="form-group row">
+19:            <div class="col">
+20:              <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+21:            </div>
+22:          </div>
+23:        <% end %>
+24:      <%end%> 
+25:    </div>
+  
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:38:56 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.1ms | Allocations: 620)
+  Rendered posts/_feed.html.erb (Duration: 1.2ms | Allocations: 1436)
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 2604)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 4829)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class='col'>
+  <% @posts.each do |p| %>
+    <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    <p><%= p.content %></p>
+      <%= pluralize(p.like_count, 'like')%>
+     <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+     <%% p.comments.each do |c| %>
+      <p><%= c.content %></p>
+    <%end%>
+</div>
+    <div class='row'>
+    <%= form_with(model:  @comment) do |f| %>
+      <div class='form-group row'>
+        <div class='col'>
+          <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+        </div>
+      </div>
+    <% end %>
+  <%end%> 
+</div>
+
+):
+1:    <div class='col'>
+2:      <% @posts.each do |p| %>
+3:        <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+4:        <p><%= p.content %></p>
+5:          <%= pluralize(p.like_count, 'like')%>
+6:         <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+7:         <%% p.comments.each do |c| %>
+8:          <p><%= c.content %></p>
+9:        <%end%>
+10:    </div>
+11:        <div class='row'>
+12:        <%= form_with(model:  @comment) do |f| %>
+13:          <div class='form-group row'>
+14:            <div class='col'>
+15:              <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+16:            </div>
+17:          </div>
+18:          <div class="form-group row">
+19:            <div class="col">
+20:              <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+21:            </div>
+22:          </div>
+23:        <% end %>
+24:      <%end%> 
+25:    </div>
+  
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:39:02 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.0ms | Allocations: 620)
+  Rendered posts/_feed.html.erb (Duration: 1.5ms | Allocations: 1434)
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2602)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms | Allocations: 4827)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class='col'>
+  <% @posts.each do |p| %>
+    <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    <p><%= p.content %></p>
+      <%= pluralize(p.likes_count, 'like')%>
+     <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+     <%% p.comments.each do |c| %>
+      <p><%= c.content %></p>
+    <%end%>
+</div>
+    <div class='row'>
+    <%= form_with(model:  @comment) do |f| %>
+      <div class='form-group row'>
+        <div class='col'>
+          <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+        </div>
+      </div>
+    <% end %>
+  <%end%> 
+</div>
+
+):
+1:    <div class='col'>
+2:      <% @posts.each do |p| %>
+3:        <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+4:        <p><%= p.content %></p>
+5:          <%= pluralize(p.likes_count, 'like')%>
+6:         <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+7:         <%% p.comments.each do |c| %>
+8:          <p><%= c.content %></p>
+9:        <%end%>
+10:    </div>
+11:        <div class='row'>
+12:        <%= form_with(model:  @comment) do |f| %>
+13:          <div class='form-group row'>
+14:            <div class='col'>
+15:              <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+16:            </div>
+17:          </div>
+18:          <div class="form-group row">
+19:            <div class="col">
+20:              <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+21:            </div>
+22:          </div>
+23:        <% end %>
+24:      <%end%> 
+25:    </div>
+  
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:39:11 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.9ms | Allocations: 620)
+  Rendered posts/_feed.html.erb (Duration: 1.1ms | Allocations: 1418)
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2586)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 4811)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class='col'>
+  <% @posts.each do |p| %>
+    <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    <p><%= p.content %></p>
+      
+     <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+     <%% p.comments.each do |c| %>
+      <p><%= c.content %></p>
+    <%end%>
+</div>
+    <div class='row'>
+    <%= form_with(model:  @comment) do |f| %>
+      <div class='form-group row'>
+        <div class='col'>
+          <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+        </div>
+      </div>
+    <% end %>
+  <%end%> 
+</div>
+
+):
+1:    <div class='col'>
+2:      <% @posts.each do |p| %>
+3:        <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+4:        <p><%= p.content %></p>
+5:          
+6:         <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+7:         <%% p.comments.each do |c| %>
+8:          <p><%= c.content %></p>
+9:        <%end%>
+10:    </div>
+11:        <div class='row'>
+12:        <%= form_with(model:  @comment) do |f| %>
+13:          <div class='form-group row'>
+14:            <div class='col'>
+15:              <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+16:            </div>
+17:          </div>
+18:          <div class="form-group row">
+19:            <div class="col">
+20:              <%= button_to 'Create comment', comments_path(comment: {user_id: current_user.id, post_id: p.id}), method: :post, class: 'btn btn-primary btn-lg custom-btn text-center' %>
+21:            </div>
+22:          </div>
+23:        <% end %>
+24:      <%end%> 
+25:    </div>
+  
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/_feed.html.erb:28: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:39:25 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.8ms | Allocations: 620)
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 8.4ms | Allocations: 3443)
+  Rendered posts/index.html.erb within layouts/application (Duration: 13.0ms | Allocations: 4611)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.5ms | Allocations: 6835)
+
+
+  
+ActionView::Template::Error (undefined method `likes_count' for #<Post:0x00007f370837ed80>):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.likes_count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:40:50 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.5ms | Allocations: 620)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 6.1ms | Allocations: 3438)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4606)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms | Allocations: 6830)
+
+
+  
+ActionView::Template::Error (undefined method `likes' for #<Post:0x0000564e11abc4e8>):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.likes.count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:40:58 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.2ms | Allocations: 620)
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 7.4ms | Allocations: 3434)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 4604)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.7ms | Allocations: 6828)
+
+
+  
+ActionView::Template::Error (undefined method `like' for #<Post:0x0000564e10d004f8>):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.like.count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReferencesToPosts (20191218224132)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReferencesToPosts (20191218224312)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "likes_id" bigint[0m
+  [1m[35m (122.0ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_likes_id" ON "posts"  ("likes_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "posts" ADD "comments_id" bigint[0m
+  [1m[35m (51.6ms)[0m  [1m[35mCREATE  INDEX  "index_posts_on_comments_id" ON "posts"  ("comments_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191218224312"]]
+  [1m[35m (21.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:43:44 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.1ms | Allocations: 491)
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 9.4ms | Allocations: 3424)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4052)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 6.6ms | Allocations: 16141)
+
+
+  
+ActionView::Template::Error (undefined method `like' for #<Post:0x00007f3708724138>):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.like.count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:43:52 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.9ms | Allocations: 620)
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 6.8ms | Allocations: 3895)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 5063)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.8ms | Allocations: 7289)
+
+
+  
+ActionView::Template::Error (undefined method `likes' for #<Post:0x0000564e11884f18>
+Did you mean?  likes_id):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.likes.count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:44:02 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.5ms | Allocations: 620)
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 14.4ms | Allocations: 3725)
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 4893)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.5ms | Allocations: 7119)
+
+
+  
+ActionView::Template::Error (undefined method `likes_count' for #<Post:0x00007f3708ab78e0>
+Did you mean?  likes_id):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.likes_count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      
+    8: </div>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:45:06 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.5ms | Allocations: 620)
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 9.4ms | Allocations: 3917)
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.5ms | Allocations: 5085)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.8ms | Allocations: 7311)
+
+
+  
+ActionView::Template::Error (undefined method `likes' for #<Post:0x00007f3708a37a50>
+Did you mean?  likes_id):
+    2:   <% @posts.each do |p| %>
+    3:     <div> <span class='font-weight-bold'><%= current_user.name %></span> <br>
+    4:     <p><%= p.content %></p>
+    5:       <%= pluralize(p.likes.count, 'like')%>
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      <% p.comments.each do |c|%>
+    8:       <p><%= c.content%>
+  
+app/views/posts/_feed.html.erb:5
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
+Started GET "/" for 127.0.0.1 at 2019-12-18 19:45:10 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.9ms | Allocations: 620)
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:2
+  Rendered posts/_feed.html.erb (Duration: 14.3ms | Allocations: 4140)
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 5313)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.6ms | Allocations: 7541)
+
+
+  
+ActionView::Template::Error (undefined method `comments' for #<Post:0x0000564e104f7b58>
+Did you mean?  comments_id):
+    4:     <p><%= p.content %></p>
+    5:   
+    6:      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+    7:      <% p.comments.each do |c|%>
+    8:       <p><%= c.content%>
+    9:      <%end%> 
+   10: </div>
+  
+app/views/posts/_feed.html.erb:7
+app/views/posts/_feed.html.erb:2
+app/views/posts/index.html.erb:8
