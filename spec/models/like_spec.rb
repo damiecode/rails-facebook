@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before :each do
-     @user = User.create(name: 'test', email: 'test@test.com', password: 'foobar')
-    @post = @user.posts.build(content: 'This is a post');
+    @user = User.create(name: 'test', email: 'test@test.com', password: 'foobar')
+    @post = @user.posts.build(content: 'This is a post')
   end
 
   it 'should return false without a post id' do
@@ -16,7 +16,7 @@ RSpec.describe Like, type: :model do
 
   it 'should return true with a post id' do
     @like = @user.likes.build(post_id: @post.id)
-    expect(@like.valid?).to eql(true)  
+    expect(@like.valid?).to eql(true)
   end
 
   it 'should return false without a user id' do
@@ -27,7 +27,7 @@ RSpec.describe Like, type: :model do
 
   it 'should return true with a user id' do
     @like = @post.likes.build(user_id: @user.id)
-    expect(@like.valid?).to eql(true)  
+    expect(@like.valid?).to eql(true)
   end
 
   it 'should ensure a user cannot like a post twice' do
