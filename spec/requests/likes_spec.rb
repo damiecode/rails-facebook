@@ -20,8 +20,8 @@ RSpec.describe 'Likes' do
     end
 
     it 'increase like count' do
-      get posts_path 
-      post likes_path(like: {user_id: 1, post_id: 1}) 
+      get posts_path
+      post likes_path(like: { user_id: 1, post_id: 1 })
 
       expect(post1.reload.likes.count).to eql(1)
     end
@@ -29,7 +29,7 @@ RSpec.describe 'Likes' do
 
   context 'when not logged in' do
     it 'redirects to login path when trying to like without being logged in' do
-       post likes_path(like: {user_id: 1, post_id: 1}) 
+      post likes_path(like: { user_id: 1, post_id: 1 })
 
       expect(response).to redirect_to('/users/sign_in')
     end
