@@ -1,0 +1,6 @@
+<ul>
+  <% @friends.each do |f| %>
+    <li><%= link_to "#{f.name}", f.show_path %></li><br>
+    <br><br>
+  <%end%>
+</ul>

@@ -1,0 +1,8 @@
+<ul>
+  <% @friends_pending_requests.each do |f| %>
+    <li><%= f.name %></li><br>
+      <%=button_to 'Accept', friendships_path(accept_params: {friend: f}), method: :put%>
+      <%=button_to 'Decline', friendships_path, method: :delete %>
+    <br><br>
+  <%end%>
+</ul>
