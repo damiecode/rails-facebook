@@ -6,6 +6,7 @@ RSpec.describe 'CommentsController' do
   before :each do
     @user = User.create(name: 'test', email: 'test@test.com', password: 'foobar')
     @post = @user.posts.build(content: 'This is a post')
+    @post.save
   end
 
   describe 'Create a comment' do
