@@ -11,7 +11,11 @@ class LikesController < ApplicationController
     else
       flash[:alert] = 'You have already liked this post!'
     end
-    redirect_to request.referrer
+    if request.referrer
+      redirect_to request.referrer
+    else
+      redirect_to root_path
+    end
   end
 
   private
