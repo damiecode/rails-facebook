@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
-  user1 = User.create!(name: 'example', email: 'test@example.com', password: '123456', password_confirmation: '123456')
+  user1 = User.create!(name: 'example', email: 'test2@example.com', password: '123456', password_confirmation: '123456')
   post1 = user1.posts.create!(content: 'A new post')
 
   let(:user_params) do
     {
       user: {
-        email: 'test@example.com',
+        email: 'test2@example.com',
         password: '123456'
       }
     }

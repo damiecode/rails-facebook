@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Likes do
+RSpec.describe 'Likes' do
   user1 = User.create!(name: 'example', email: 'test@example.com', password: '123456', password_confirmation: '123456')
   post1 = user1.posts.create!(content: 'A new post')
 
