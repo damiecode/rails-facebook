@@ -13,19 +13,15 @@ class FriendshipsController < ApplicationController
     redirect_to request.referrer
   end
 
-  def index
-    @friends_pending_requests = current_user.friend_requests
-    @user_pending_requests = current_user.pending_friends
-    @friends = current_user.friends
-  end
-
   def update
-    current_user.confirm_friend(accept_params)
+    @friendship = Friendship.find(params[:id].to_i).update_column(:confirmed, true)
+    redirect_to users_path
   end
 
   def destroy
+    @friendship = Friendship.find_by(id: params[:id].to_i)
     @friendship.destroy
-    redirect_to friendships_path
+    redirect_to users_path
   end
 
   private

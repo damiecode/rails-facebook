@@ -6,6 +6,5 @@ Rails.application.routes.draw do
    resources :users
    resources :likes, only: [:create]
    resources :comments, only: [:create]
-   resources :friendships, only: [:create, :index, :destroy]
-   put '/friendships', to: 'friendships#update'
+   resources :friendships, only: [:create, :update, :destroy]
 end
