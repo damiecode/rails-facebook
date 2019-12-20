@@ -2,15 +2,15 @@
   <% @pending_friend_requests.each do |p|%>
       <li><%=p.name%></li>
       <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
-                                              :id => (find_friendship(current_user, p) || 
-                                                      find_friendship(p, current_user))} , 
+                                              :id => ([find_friendship(current_user, p), 
+                                                      find_friendship(p, current_user)])} , 
                                               :method => :patch,
                                               :class => 'btn btn-primary mt-1',
                                                 data: { confirm: "Are you sure?" } %>
         
         <%=button_to 'Decline',  {:controller => :friendships, :action => 'destroy',
-                                              :id => (find_friendship(current_user, p) || 
-                                                      find_friendship(p, current_user)) }, 
+                                              :id => ([find_friendship(current_user, p),
+                                                      find_friendship(p, current_user)]) }, 
                                               :method => :delete,
                                               :class => 'btn btn-primary mt-1',
                                                 data: { confirm: "Are you sure?" } %>
