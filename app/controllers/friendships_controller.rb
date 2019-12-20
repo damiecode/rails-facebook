@@ -4,11 +4,13 @@ class FriendshipsController < ApplicationController
   before_action :require_login
 
   def create
-    @friendship = Friendship.new(friendship_params)
-    @friendship.user_id = current_user.id
+    @friendship1 = Friendship.new(friendship_params)
+    @friendship1.user_id = current_user.id
+    @friendship2 = Friendship.new(user_id: @friendship1.friend_id, friend_id: @friendship1.user_id)
 
-    if @friendship.valid?
-      @friendship.save
+    if @friendship1.valid? && @friendship2.valid?
+      @friendship1.save
+      @friendship2.save
     else
       flash[:alert] = 'Invalid friend request'
     end
@@ -16,13 +18,17 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship = Friendship.find(params[:id].to_i).update_column(:confirmed, true)
+    @friendship1 = Friendship.find(params[:id].to_i).update_column(:confirmed, true)
+    @friendship2 = Friendship.where('user_id = ? and friend_id = ?', @friendship1.friend_id, @friendship1.user_id)
+    @friendship2.update_column(:confirmed, true)
     redirect_to users_path
   end
 
   def destroy
-    @friendship = Friendship.find_by(id: params[:id].to_i)
-    @friendship.destroy
+    @friendship1 = Friendship.find_by(id: params[:id].to_i)
+    @friendship2 = Friendship.where('user_id = ? and friend_id = ?', @friendship1.friend_id, @friendship1.user_id)
+    @friendship1.destroy
+    @friendship2.destroy
     redirect_to users_path
   end
 
@@ -30,9 +36,5 @@ class FriendshipsController < ApplicationController
 
   def friendship_params
     params.require(:friendship).permit(:friend_id)
-  end
-
-  def accept_params
-    params.require(:accept_params).permit(:friend)
   end
 end
