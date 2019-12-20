@@ -17,13 +17,17 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find(params[:id].to_i).update_column(:confirmed, true)
-    redirect_to users_path
+    redirect_to request.referrer
   end
 
   def destroy
     @friendship = Friendship.find_by(id: params[:id].to_i)
     @friendship.destroy
     redirect_to users_path
+  end
+
+  def index
+    @pending_friend_requests = current_user.friend_requests
   end
 
   private
