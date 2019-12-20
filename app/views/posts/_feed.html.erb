@@ -1,41 +1,45 @@
 <div class='col'>
   <ul>
-    <% @posts.each do |p| %>
-      <li>
-        <div> 
-          <span class='font-weight-bold'><%= current_user.name %></span> <br>
-          <p><%= p.content %></p>
-          <% if p.likes %>
-            <%= pluralize(p.likes.count, 'like')%>
-          <% end %>
-          <% if !current_user.likes.map(&:post_id).include? p.id %>
-            <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>        
-          <%end%>
-          <h4>Comments</h4>
-          <% if p.comments%>
-            <ul>
-              <% p.comments.each do |c|%>
-                <li><%= c.content%></li>
+  <% @users.each do |u|%>
+    <%if current_user == u || current_user.friend?(u)%>
+        <% u.posts.each do |p| %>
+          <li>
+            <div> 
+              <span class='font-weight-bold'><%= u.name %></span> <br>
+              <p><%= p.content %></p>
+              <% if p.likes %>
+                <%= pluralize(p.likes.count, 'like')%>
+              <% end %>
+              <% if !current_user.likes.map(&:post_id).include? p.id %>
+                <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>        
               <%end%>
-            </ul> 
-          <%end%>
-        </div>
-        <div class='row'>
-          <%= form_for(:comment, :url => { :action => :create, :controller => :comments } )  do |f| %>
-            <div class='form-group row'>
-              <div class='col'>
-                <%= f.hidden_field :post_id, value: p.id %>
-                <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
-              </div>
+              <h4>Comments</h4>
+              <% if p.comments%>
+                <ul>
+                  <% p.comments.each do |c|%>
+                    <li><%= c.content%></li>
+                  <%end%>
+                </ul> 
+              <%end%>
             </div>
-            <div class="form-group row">
-              <div class="col">
-                <%= f.submit%>
-              </div>
+            <div class='row'>
+              <%= form_for(:comment, :url => { :action => :create, :controller => :comments } )  do |f| %>
+                <div class='form-group row'>
+                  <div class='col'>
+                    <%= f.hidden_field :post_id, value: p.id %>
+                    <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col">
+                    <%= f.submit%>
+                  </div>
+                </div>
+              <% end %>
             </div>
-          <% end %>
-        </div>
-      </li>
-    <%end%> 
+          </li>
+        <%end%> 
+    <%end%>
+  <%end%>
   </ul>
 </div>
