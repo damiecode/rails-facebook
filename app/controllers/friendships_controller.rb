@@ -16,16 +16,18 @@ class FriendshipsController < ApplicationController
     else
       flash[:alert] = 'Invalid friend request'
     end
-    redirect_to request.referrer
+    redirect_to users_path
   end
 
   def update
-    friendships = Friendship.where(id: params[:id])
-    friendships.update(confirmed: true)
+    friendship1 = Friendship.where(id: params[:id][0])
+    friendship2 = Friendship.where(id: params[:id][1])
+    friendship1.update(confirmed: true)
+    friendship2.update(confirmed: true)
+    redirect_to request.referrer
   end
 
   def destroy
-
     Friendship.where(id: params[:id]).destroy_all
     redirect_to users_path
   end
@@ -40,8 +42,8 @@ class FriendshipsController < ApplicationController
     params.require(:friendship).permit(:friend_id)
   end
 
-  def accept_params
-    params.require(:accept_params).permit(:friend)
+  def friendship_update_params
+    params.require(:update_params).permit(:id)
   end
 end
 # rubocop:enable Metrics/LineLength

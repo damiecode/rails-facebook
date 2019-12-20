@@ -9,9 +9,8 @@
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
     <%elsif current_user.friend_requests.include?(u)%>
-      <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
-                                             :id => ([find_friendship(current_user, u), 
-                                                     find_friendship(u, current_user)])} , 
+        <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
+                                             :id => (find_friendship(current_user, u)) }, 
                                              :method => :patch,
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
