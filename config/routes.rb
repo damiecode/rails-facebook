@@ -6,5 +6,10 @@ Rails.application.routes.draw do
    resources :users
    resources :likes, only: [:create]
    resources :comments, only: [:create]
-   resources :friendships, only: [:create, :update, :destroy]
+   resources :friendships, only: [:create, :destroy, :index]
+   resources :friendships do
+    collection do
+      patch :update
+    end
+  end
 end
