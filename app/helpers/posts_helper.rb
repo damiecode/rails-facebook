@@ -2,6 +2,6 @@
 
 module PostsHelper
   def liked?(id)
-    !current_user.likes.map(&:post_id).include? id 
+    !current_user.likes.map(&:post_id).include? id
   end
 end
