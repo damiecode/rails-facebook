@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: rails_facebook_development
+  username: rails_facebook
+  password: rails_facebook
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,8 @@ development:
 test:
   <<: *default
   database: rails_facebook_test
+  username: rails_facebook
+  password: rails_facebook
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,5 +85,5 @@ test:
 production:
   <<: *default
   database: rails_facebook_production
-  username: rail_facebook
-  password: <%= ENV['RAILS_FACEBOOK_DATABASE_PASSWORD'] %>
+  username: rails_facebook
+  password: rails_facebook
