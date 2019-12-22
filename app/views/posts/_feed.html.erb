@@ -3,21 +3,22 @@
   <% @users.each do |u|%>
     <%if current_user == u || current_user.friend?(u)%>
         <% u.posts.each do |p| %>
-          <li>
-            <div> 
-              <span class='font-weight-bold'><%= u.name %></span> <br>
-              <p><%= p.content %></p>
+          <li class='card mb-4 bg-white' style="width: 35rem;">
+          <div class='card-body mx-auto'>
+            <div class = 'card-text'> 
+              <span class='font-weight-bold feed-text card-title text-primary'><%= u.name %></span> <br>
+              <p class='text-dark'><%= p.content %></p>
+              <p class='text-dark'>
               <% if p.likes %>
                  <%= pluralize(p.likes.count, 'like')%>
               <% end %>
               <% if liked?(p.id) %>
                 <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
               <%end%>
-              <h4>Comments</h4>
               <% if p.comments%>
                 <ul>
                   <% p.comments.each do |c|%>
-                    <li><%= c.content%></li>
+                    <li class='text-dark'><%= c.content%></li>
                   <%end%>
                 </ul> 
               <%end%>
@@ -27,12 +28,12 @@
                 <div class='form-group row'>
                   <div class='col'>
                     <%= f.hidden_field :post_id, value: p.id %>
-                    <%= f.text_area :content,rows: 3,cols: 110, class: 'form-control', placeholder: 'Whats on your mind', autofocus: true %>
+                    <%= f.text_area :content,rows: 2,cols: 80, class: 'form-control rounded-pill text-center', placeholder: 'Write a comment', autofocus: true %>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col">
-                    <%= f.submit%>
+                    <%= f.submit class: 'btn btn-primary mt-1 text-center'%>
                   </div>
                 </div>
               <% end %>

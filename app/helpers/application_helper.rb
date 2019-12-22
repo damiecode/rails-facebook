@@ -2,23 +2,23 @@
 
 module ApplicationHelper
   def notice_count
-		if current_user.notifications.count == 0
-			number_of_notices = nil
-		else
-			number_of_notices = "#{current_user.notifications.count}"
-		end
-	end
+    number_of_notices = if current_user.notifications.count == 0
+                          nil
+                        else
+                          current_user.notifications.count.to_s
+                        end
+  end
 
-	def construct_notices
-		notices = []
-		current_user.notifications.each do |notice|
-			notices << notice_message()
-		end
-		notices
-	end
+  def construct_notices
+    notices = []
+    current_user.notifications.each do |_notice|
+      notices << notice_message
+    end
+    notices
+  end
 end
 
-def notice_message()
-	message = "New Friend Requests!" 
-	message
+def notice_message
+  message = 'New Friend Requests!'
+  message
 end
