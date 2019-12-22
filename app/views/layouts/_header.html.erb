@@ -26,18 +26,16 @@
      <div>
      </ul>
         <% if notice_count %>
+          <li class="nav-link">
+            <%= link_to "Delete notifications", notifications_destroy_path,class: 'text-white' %>
+          </li>
         <% construct_notices.each do |notice| %>
-          <li class=' d-block alert alert-success' role='alert alert-dismissible'><%= notice %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <li class=' d-block alert alert-success' role='alert'><%= notice %>
           </li>
       <% end %>
      </div>
     <%end%>
-    <li class="nav-link">
-      <%= link_to "Delete all notices", notifications_destroy_path,class: 'text-white' %>
-    </li>
+
     <li class="nav-link">
       <%= link_to 'Log out', destroy_session_path(current_user), method: :delete,class: 'text-white' %>
     </li>
