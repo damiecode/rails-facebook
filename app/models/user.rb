@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30 }
 
+  has_many :notifications, foreign_key: :recipient_id
   has_many :posts
   has_many :likes
   has_many :comments

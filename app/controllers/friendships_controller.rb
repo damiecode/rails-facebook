@@ -9,6 +9,11 @@ class FriendshipsController < ApplicationController
 
     if @friendship.valid?
       @friendship.save
+
+      #create notifications
+      (@friendships.users.uniq - [current_user]).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: 'sent', notfiable: @friendships)
+      end
     else
       flash[:alert] = 'Invalid friend request'
     end
