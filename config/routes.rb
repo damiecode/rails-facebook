@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+   get 'notifications/destroy'
    devise_for :users, controllers: { registrations: 'users/registrations' }
    root to: "posts#index"
 
