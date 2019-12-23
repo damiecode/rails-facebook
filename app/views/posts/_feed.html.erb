@@ -3,13 +3,13 @@
     <% @posts.each do |p| %>
       <li>
         <div> 
-          <span class='font-weight-bold'><%= current_user.name %></span> <br>
+          <span class='font-weight-bold'><%= p.user.name %></span> <br>
           <p><%= p.content %></p>
           <% if p.likes %>
             <%= pluralize(p.likes.count, 'like')%>
           <% end %>
-          <% if !current_user.likes.map(&:post_id).include? p.id %>
-            <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>        
+          <% if liked?(p.id) %>
+            <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
           <%end%>
           <h4>Comments</h4>
           <% if p.comments%>
