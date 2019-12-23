@@ -1,16 +1,17 @@
 <ul>
   <% @users.each do |u| %>
     <li class='text-dark'><%= u.name %></li><br>
-    <% if current_user.pending_friends.include?(u)%>
+    <% if @pending_friends.include?(u)%>
       <%=button_to 'Cancel request',  {:controller => :friendships, :action => 'destroy',
                                              :id => ([find_friendship(current_user, u),
                                                      find_friendship(u, current_user)])} , 
                                              :method => :delete,
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
-    <%elsif current_user.friend_requests.include?(u)%>
-        <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
-                                             :id => (find_friendship(current_user, u)) }, 
+    <%elsif @requests.include?(u)%>
+      <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
+                                             :id => (find_friendship(current_user, u) || 
+                                                     find_friendship(u, current_user))} , 
                                              :method => :patch,
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
@@ -21,7 +22,7 @@
                                              :method => :delete,
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
-    <%elsif !current_user.friend?(u)%>
+    <%elsif !@friends.include?(u)%>
       <%=button_to 'Request friendship',  friendships_path(friendship: {friend_id: u.id}),
                                             method: :post,
                                             class: 'btn btn-primary mt-1'%>

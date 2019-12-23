@@ -46,23 +46,25 @@ Ubuntu 18.04 & below
 - Ruby
 - Ruby on Rails
 
-## Usage
-
-> Clone the repository to your machine and cd into the directory
+## Installation
+> Open your git bash and **cd** to the location you'd like to put your files the run the command below.
 
 ```sh
 $ git clone https://github.com/marcos-medeiros/rails-facebook.git
 ```
 
+**cd** to into the project folder and install using `bundle install --withoutproduction`
+
 ```sh
 $ cd rails-facebook
+$ bundle insatll
 ```
 
-> Use the following command to start the rails server then visit: http://localhost:3000 to use the app
+`rails db:migrate`
 
-```sh
-$ rails s
-```
+To start the server: `rails server`
+
+> visit: http://localhost:3000 to use the app
 
 ​## Authors
 ​

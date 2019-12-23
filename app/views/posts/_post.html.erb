@@ -1,0 +1,17 @@
+<% @users.each do |u|%>
+  <%if @user == u || @friends.include?(u)%>
+    <% u.posts.each do |p| %>
+      <li class='card mb-4 bg-white' style="width: 35rem;">
+        <div class='card-body mx-auto'>
+          <div class = 'card-text'> 
+            <span class='font-weight-bold feed-text card-title text-primary'>
+              <%= u.name %>
+            </span><br>
+            <p class='text-dark'>
+              <%= p.content %>
+            </p>
+        </div>
+      </li>
+    <%end%>
+  <%end%>
+<%end%>
