@@ -1,6 +1,6 @@
 <ul>
   <% @requests.each do |p|%>
-      <li><%=p.name%></li>
+      <li class='text-dark'><%=p.name%></li>
       <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
                                               :id => (find_friendship(current_user, p) || 
                                                       find_friendship(p, current_user))} , 
