@@ -1,5 +1,5 @@
 <% @users.each do |u|%>
-  <%if current_user == u || current_user.friend?(u)%>
+  <%if current_user == u || @friends.includes?(u))%>
     <% u.posts.each do |p| %>
       <% if p.likes %>
         <%= pluralize(p.likes.count, 'like')%>
