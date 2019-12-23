@@ -40,7 +40,10 @@ RSpec.describe FriendshipsController, type: :controller do
       sign_in user_2
       visit users_path
       expect(page).to have_selector(:link_or_button, 'Accept')
-      user_2.confirm_friend(user_1)
+      accept_alert do
+        click_on 'Accept'
+      end
+      have_content 'Request Accepted!'
       visit users_path
       expect(page).to have_selector(:link_or_button, 'Delete friendship')
       expect(Friendship.count).to eql(1)
