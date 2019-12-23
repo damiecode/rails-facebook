@@ -16278,6 +16278,7 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "3257307e70d99795b44d64fa83b9aa9219dcdf70"], ["created_at", "2019-12-19 17:25:02.770090"], ["updated_at", "2019-12-19 17:25:02.770090"]]
   [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+<<<<<<< HEAD
   [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to CreateFriendships (20191219195016)
@@ -42117,3 +42118,479 @@ Completed 200 OK in 39ms (Views: 31.9ms | ActiveRecord: 2.6ms | Allocations: 933
 
 
   [1m[36mFriendship Load (0.6ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" LIMIT $1[0m  [["LIMIT", 11]]
+=======
+Started GET "/" for ::1 at 2019-12-21 17:39:09 +0100
+  [1m[35m (20.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms | Allocations: 474)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-21 17:39:11 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 15.7ms | Allocations: 621)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 237.9ms | Allocations: 4917)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 6.2ms | Allocations: 633)
+  Rendered layouts/_footer.html.erb (Duration: 12.4ms | Allocations: 95)
+Completed 200 OK in 603ms (Views: 421.9ms | ActiveRecord: 69.2ms | Allocations: 16916)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-12-21 17:39:17 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 14.5ms | Allocations: 206)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 89)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 46.5ms | Allocations: 2134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 82ms (Views: 78.7ms | ActiveRecord: 0.0ms | Allocations: 6475)
+
+
+Started POST "/users" for ::1 at 2019-12-21 17:39:33 +0100
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"qd9VZZmhpgmx9De1GWG2fq1rgonPZbzPkk1izIMhTBqTioLey6dEXBcR/tIE/JxpcwYAiAyo/X/hOAGkvzoZIw==", "user"=>{"name"=>"Joe", "email"=>"joe@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Exists? (52.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "joe@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 223)
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.1ms | Allocations: 1511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 208)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 560ms (Views: 59.5ms | ActiveRecord: 54.4ms | Allocations: 11453)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-21 17:39:40 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 28.8ms | Allocations: 1084)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 91ms (Views: 77.1ms | ActiveRecord: 0.0ms | Allocations: 3950)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-21 17:39:54 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"DvGI3Kg7yHnRxN6SQHAOBw0mtiCfjMuUrqlecOCynehhMW1O4V1pJvwCTvENtBm7eDUudDS+NTVK2OFDyrNnWQ==", "user"=>{"email"=>"joe@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "joe@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 419ms (ActiveRecord: 2.0ms | Allocations: 5415)
+
+
+Started GET "/" for ::1 at 2019-12-21 17:39:54 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 98.6ms | Allocations: 803)
+  [1m[36mPost Load (39.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (122.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (1.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (2.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 398.3ms | Allocations: 15997)
+  Rendered posts/index.html.erb within layouts/application (Duration: 526.7ms | Allocations: 17351)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 405)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 841ms (Views: 360.7ms | ActiveRecord: 214.5ms | Allocations: 35526)
+
+
+Started POST "/posts" for ::1 at 2019-12-21 17:40:21 +0100
+Processing by PostsController#create as JS
+  Parameters: {"authenticity_token"=>"Bi3i6BeOptRUIlF00ePJ2titKsGdxRpkBD6etajFMbVU7cuNR8w0fZdUANSYfTlVFA6kOMJeIU/xBGvMSOswAg==", "post"=>{"content"=>"My new post is cool"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[36mPost Create (18.6ms)[0m  [1m[32mINSERT INTO "posts" ("content", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "My new post is cool"], ["created_at", "2019-12-21 16:40:21.623624"], ["updated_at", "2019-12-21 16:40:21.623624"], ["user_id", 1]]
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+  [1m[35m (22.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:26:in `create'
+Redirected to http://localhost:3000/posts
+Completed 200 OK in 78ms (ActiveRecord: 46.3ms | Allocations: 5443)
+
+
+Started GET "/posts" for ::1 at 2019-12-21 17:40:21 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.8ms | Allocations: 432)
+  [1m[36mPost Load (10.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (5.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 225.8ms | Allocations: 12776)
+  Rendered posts/index.html.erb within layouts/application (Duration: 230.9ms | Allocations: 13342)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 5.5ms | Allocations: 356)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 283ms (Views: 214.4ms | ActiveRecord: 48.0ms | Allocations: 18368)
+
+
+Started GET "/users" for ::1 at 2019-12-21 17:40:35 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `index'
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_users.html.erb (Duration: 1.3ms | Allocations: 130)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 435)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 393)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 103ms (Views: 63.5ms | ActiveRecord: 7.6ms | Allocations: 6063)
+
+
+Started GET "/users" for ::1 at 2019-12-21 17:40:47 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:11:in `index'
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/_users.html.erb (Duration: 0.1ms | Allocations: 12)
+  Rendered users/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 81)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 378)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 72ms (Views: 35.9ms | ActiveRecord: 1.6ms | Allocations: 5023)
+
+
+Started GET "/posts" for ::1 at 2019-12-21 17:40:50 +0100
+Processing by PostsController#index as HTML
+  Parameters: {"authenticity_token"=>"Ba8WMfHc5mHSG5dbznVMQPEfA77eP350gDyFiZHjN4JXbz9UoZ50yBFtxvuH67zPPbyNR4GkRV91BnDwcc02NQ=="}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.0ms | Allocations: 437)
+  [1m[36mPost Load (3.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (1.1ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (2.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (3.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 127.1ms | Allocations: 12782)
+  Rendered posts/index.html.erb within layouts/application (Duration: 131.5ms | Allocations: 13354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 365)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 173ms (Views: 120.2ms | ActiveRecord: 29.7ms | Allocations: 18415)
+
+
+Started POST "/likes?like%5Bpost_id%5D=4&like%5Buser_id%5D=1" for ::1 at 2019-12-21 17:40:58 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"bl6jEYzmFTUaGiuTBNrQjs90m1LOTndbIEYjTw9WJ6A8nop03KSHnNlsejNNRCABA9cVq5HVTHDVfNY273gmFw==", "like"=>{"post_id"=>"4", "user_id"=>"1"}}
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mLike Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 1], ["post_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mCACHE Like Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 1], ["post_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[36mLike Create (16.9ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["post_id", 4], ["created_at", "2019-12-21 16:40:58.482779"], ["updated_at", "2019-12-21 16:40:58.482779"]]
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[35m (18.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 126ms (ActiveRecord: 52.0ms | Allocations: 11799)
+
+
+Started GET "/posts" for ::1 at 2019-12-21 17:40:58 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.4ms | Allocations: 430)
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (0.8ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 94.6ms | Allocations: 12613)
+  Rendered posts/index.html.erb within layouts/application (Duration: 99.2ms | Allocations: 13177)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 356)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 125ms (Views: 96.2ms | ActiveRecord: 17.3ms | Allocations: 18198)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-12-21 17:41:20 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"lVOFxKBre54YVZBaRHb5UzBhYaE2OX5jG40z/GGG1L7Hk6yh8CnpN9sjwfoN6Anc/MLvWGmiRUjut8aFgajVCQ=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 0.7ms | Allocations: 4700)
+
+
+Started GET "/" for ::1 at 2019-12-21 17:41:20 +0100
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 406)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-12-21 17:41:20 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.7ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.0ms | Allocations: 1089)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 214)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 5)
+Completed 200 OK in 92ms (Views: 46.4ms | ActiveRecord: 0.0ms | Allocations: 3963)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-21 17:41:32 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"WSXSmcfIuqsbB76Nqi0ze4yWt+L06y3Ff9pJwPdnwcN/6Jzo4mJsXOtfATJ0k6I+g6kQ1NHS7+xPFxbM79S91w==", "user"=>{"email"=>"john@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "john@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 18ms (ActiveRecord: 5.6ms | Allocations: 1916)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"WSXSmcfIuqsbB76Nqi0ze4yWt+L06y3Ff9pJwPdnwcN/6Jzo4mJsXOtfATJ0k6I+g6kQ1NHS7+xPFxbM79S91w==", "user"=>{"email"=>"john@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1074)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 172)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 318ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 3811)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-21 17:41:39 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qbuWrDm42OO0BYmdrtjZvPcdjaEVPCCYELBm4eXkp2ePdtjdHBIOFERdNiJwZkj5+CIqlzAF4rEgfTnt/Vfbcw==", "user"=>{"email"=>"john@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "john@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.8ms | Allocations: 1907)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"qbuWrDm42OO0BYmdrtjZvPcdjaEVPCCYELBm4eXkp2ePdtjdHBIOFERdNiJwZkj5+CIqlzAF4rEgfTnt/Vfbcw==", "user"=>{"email"=>"john@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 134)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1074)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 172)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 277ms (Views: 27.4ms | ActiveRecord: 0.0ms | Allocations: 3810)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-12-21 17:42:05 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"fgjNSWhxKof4wJYp2x6JtOuactuHcxVjX0h8mzG+xr9YxYM4Tdv8cAiYKZYFoBjx5KXV7aJK10pvhSOXKQ26qw==", "user"=>{"email"=>"mia@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "mia@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 301ms (ActiveRecord: 2.5ms | Allocations: 2803)
+
+
+Started GET "/" for ::1 at 2019-12-21 17:42:06 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 10.8ms | Allocations: 433)
+  [1m[36mPost Load (4.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (2.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (4.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 134.2ms | Allocations: 12443)
+  Rendered posts/index.html.erb within layouts/application (Duration: 147.4ms | Allocations: 13010)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 356)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 188ms (Views: 143.3ms | ActiveRecord: 25.0ms | Allocations: 18027)
+
+
+Started POST "/likes?like%5Bpost_id%5D=4&like%5Buser_id%5D=3" for ::1 at 2019-12-21 17:42:12 +0100
+Processing by LikesController#create as HTML
+  Parameters: {"authenticity_token"=>"cKh67SR5JBsZMTn5i22rV+ohVPriAsvm3s37al39BLoe0RWpq3dXqJ34x20QQIyKVfTix3Fg08nAcg3/Fv2r+g==", "like"=>{"post_id"=>"4", "user_id"=>"3"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mPost Load (4.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mLike Exists? (3.0ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 3], ["post_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:9:in `create'
+  [1m[36mCACHE Like Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 3], ["post_id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[36mLike Create (7.5ms)[0m  [1m[32mINSERT INTO "likes" ("user_id", "post_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["post_id", 4], ["created_at", "2019-12-21 16:42:12.958642"], ["updated_at", "2019-12-21 16:42:12.958642"]]
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+  [1m[35m (282.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/likes_controller.rb:10:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 356ms (ActiveRecord: 306.1ms | Allocations: 7664)
+
+
+Started GET "/" for ::1 at 2019-12-21 17:42:13 +0100
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 2.4ms | Allocations: 430)
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/_feed.html.erb:3
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mLike Load (1.0ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/helpers/posts_helper.rb:5:in `map'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 2]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/_feed.html.erb:17
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_feed.html.erb:6
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:9
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 4]]
+  ↳ app/views/posts/_feed.html.erb:17
+  Rendered posts/_feed.html.erb (Duration: 145.6ms | Allocations: 12289)
+  Rendered posts/index.html.erb within layouts/application (Duration: 153.3ms | Allocations: 12853)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 356)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 192ms (Views: 151.3ms | ActiveRecord: 23.7ms | Allocations: 17877)
+
+
+>>>>>>> 33afa16dd596a1a96cc93550ea68a330a3ea0d52
