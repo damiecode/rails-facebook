@@ -3,11 +3,11 @@ Rails.application.routes.draw do
    devise_for :users, controllers: { registrations: 'users/registrations' }
    root to: "posts#index"
 
-   resources :posts, only: [:create, :destroy, :index, :show,:new]
+   resources :posts, except: [:edit, :update]
    resources :users
    resources :likes, only: [:create]
    resources :comments, only: [:create]
-   resources :friendships, only: [:create, :destroy, :index]
+   resources :friendships, except: [:new, :edit, :show]
    resources :friendships do
     collection do
       patch :update
