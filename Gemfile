@@ -5,6 +5,8 @@ git_source(:github) { |_repo| 'https://github.com/marcos-medeiros/rails-facebook
 
 ruby '2.6.5'
 
+gem 'rack', '>= 2.0.8'
+
 # Handles authentication and login methods
 gem 'devise'
 # Handles sign in with facebook account

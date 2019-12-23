@@ -1,0 +1,12 @@
+<% @users.each do |u|%>
+  <%if @user == u || @friends.include?(u)%>
+    <% u.posts.each do |p| %>
+      <% if p.likes %>
+        <%= pluralize(p.likes.count, 'like')%>
+      <% end %>
+      <% if liked?(p.id) %>
+        <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: p.id}), method: :post%>
+      <%end%>
+    <%end%>
+  <%end%>
+<%end%>

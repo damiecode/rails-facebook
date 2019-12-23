@@ -23,7 +23,7 @@ RSpec.describe 'Likes' do
       get posts_path
       post likes_path(like: { user_id: 1, post_id: 1 })
 
-      expect(post1.reload.likes.count).to eql(1)
+      expect(post1.reload.likes.count).to eq(1)
     end
   end
 
