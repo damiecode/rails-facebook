@@ -22,7 +22,7 @@
                                              :method => :delete,
                                              :class => 'btn btn-primary mt-1',
                                               data: { confirm: "Are you sure?" } %>
-    <%elsif !@friends.includes?(u)%>
+    <%elsif !@friends.include?(u)%>
       <%=button_to 'Request friendship',  friendships_path(friendship: {friend_id: u.id}),
                                             method: :post,
                                             class: 'btn btn-primary mt-1'%>

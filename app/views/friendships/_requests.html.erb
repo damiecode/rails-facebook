@@ -1,5 +1,5 @@
 <ul>
-  <% @pending_friend_requests.each do |p|%>
+  <% @requests.each do |p|%>
       <li><%=p.name%></li>
       <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
                                               :id => (find_friendship(current_user, p) || 

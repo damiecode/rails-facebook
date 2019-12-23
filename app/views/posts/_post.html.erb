@@ -1,5 +1,5 @@
 <% @users.each do |u|%>
-  <%if current_user == u || current_user.friend?(u)%>
+  <%if @user == u || @friends.include?(u)%>
     <% u.posts.each do |p| %>
       <li class='card mb-4 bg-white' style="width: 35rem;">
         <div class='card-body mx-auto'>
