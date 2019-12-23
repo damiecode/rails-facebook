@@ -1,4 +1,4 @@
-<ul>
+<ul class='text-dark'>
   <% @pending_friend_requests.each do |p|%>
       <li><%=p.name%></li>
       <%=button_to 'Accept',  friendships_path(update_params: {id: find_friendship(current_user,p)}),

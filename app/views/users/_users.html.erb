@@ -1,6 +1,6 @@
 <ul>
   <% @users.each do |u| %>
-    <li><%= u.name %></li><br>
+    <li class='text-dark'><%= u.name %></li><br>
     <% if current_user.pending_friends.include?(u)%>
       <%=button_to 'Cancel request',  {:controller => :friendships, :action => 'destroy',
                                              :id => ([find_friendship(current_user, u),
