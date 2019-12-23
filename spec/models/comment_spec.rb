@@ -7,8 +7,9 @@ RSpec.describe Comment, type: :model do
     before :each do
       @user = User.create(name: 'test', email: 'test@test.com', password: 'foobar')
       @post = @user.posts.build(content: 'This is a post')
+      @post.save
       @comment = @post.comments.create(content: 'this is a comment', user_id: @user.id)
-      expect(@cpmment.valid?).to eql(true)
+      expect(@comment.valid?).to eql(true)
     end
 
     it 'should not be empty' do

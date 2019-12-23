@@ -6,6 +6,7 @@ RSpec.describe Like, type: :model do
   before :each do
     @user = User.create(name: 'test', email: 'test@test.com', password: 'foobar')
     @post = @user.posts.build(content: 'This is a post')
+    @post.save
   end
 
   it 'should return false without a post id' do
@@ -34,6 +35,6 @@ RSpec.describe Like, type: :model do
     @like = @post.likes.create(user_id: @user.id)
     @like2 = @post.likes.create(user_id: @user.id)
     expect(@like2.valid?).to eql(false)
-    expect(@like2.errors[:user_id]).to include('has already been liked')
+    expect(@like2.errors[:user_id]).to include('has already been taken')
   end
 end

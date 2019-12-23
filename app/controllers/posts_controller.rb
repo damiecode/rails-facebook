@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @comment = Comment.create
   end
 
   def new
