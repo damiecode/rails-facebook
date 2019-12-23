@@ -16,7 +16,9 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed && friendship.friend.id != self.id}
+    friends_array = friendships.map do |friendship|
+      friendship.friend if friendship.confirmed && friendship.friend.id != id
+    end
     friends_array
   end
 
