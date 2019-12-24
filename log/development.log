@@ -1,0 +1,343 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSenderIdToFriendships (20191220165306)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.9ms)[0m  [1m[35mALTER TABLE "friendships" ADD "sender_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotifications (20191221181109)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "notifications"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191221181109"]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateNotifications (20191221181109)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.7ms)[0m  [1m[35mCREATE TABLE "notifications" ("id" bigserial primary key, "user_id" bigint, "other_user_id" integer, "type" character varying, "type_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_b080fb4855"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (46.8ms)[0m  [1m[35mCREATE  INDEX  "index_notifications_on_user_id" ON "notifications"  ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191221181109"]]
+  [1m[35m (21.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6442534457217696390)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddOmniauthToUsers (20191223233221)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" character varying[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191223233221"]]
+  [1m[35m (43.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6442534457217696390)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-12-23 20:44:07 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 593)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-23 20:44:07 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 728)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 5229)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 790)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 95)
+Completed 200 OK in 35ms (Views: 22.6ms | ActiveRecord: 3.8ms | Allocations: 18840)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-12-23 20:44:12 -0300
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-12-23 20:44:13 -0300
+Started GET "/" for 127.0.0.1 at 2019-12-24 01:03:51 -0300
+  [1m[35m (26.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms | Allocations: 493)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:03:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 27.7ms | Allocations: 729)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 394.2ms | Allocations: 5338)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 14.3ms | Allocations: 795)
+  Rendered layouts/_footer.html.erb (Duration: 2.4ms | Allocations: 95)
+Completed 200 OK in 806ms (Views: 653.7ms | ActiveRecord: 111.3ms | Allocations: 18898)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:25 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 2201)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 684)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 92)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 7421)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:29 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zTl/IYlK+y0AaM/nJ/osbWJl/gnDv9tY4g2RzOLyJ48QXGHl+9ZNly21Y7AJkU5R93ZEZNk7FIh+afXsBqN2fg==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 460)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"zTl/IYlK+y0AaM/nJ/osbWJl/gnDv9tY4g2RzOLyJ48QXGHl+9ZNly21Y7AJkU5R93ZEZNk7FIh+afXsBqN2fg==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 207)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1327)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 197)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.0ms | Allocations: 4085)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:33 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"wx/fgDR1krMSXuG1dcTgqRYbXIuJOlGBb1qfxQlRDQAeesFERukkCT+DTeJbr4KVgwjm5pO+nlHzPvvl7QBc8Q==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 444)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"wx/fgDR1krMSXuG1dcTgqRYbXIuJOlGBb1qfxQlRDQAeesFERukkCT+DTeJbr4KVgwjm5pO+nlHzPvvl7QBc8Q==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 206)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1310)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 194)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.0ms | Allocations: 4062)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:35 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"G7nPCye4dIdyi7qTvpBrgd8pdYYMyxAx3c/Cx2AJnuvG3NHPVSTCPV9WFsSQ+wm9SjrP6xZP3+FBq6bnhFjPGg==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 450)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"G7nPCye4dIdyi7qTvpBrgd8pdYYMyxAx3c/Cx2AJnuvG3NHPVSTCPV9WFsSQ+wm9SjrP6xZP3+FBq6bnhFjPGg==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 206)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1309)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 194)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4052)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 616)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 731)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 92)
+Completed 200 OK in 20ms (Views: 11.3ms | ActiveRecord: 2.3ms | Allocations: 14873)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:04:52 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"gztv+GZ+o4g9zTEYV3Yr9oZwScz7BIcPDTenJNF1s/heXnE8FOIVMhAQnU95HUnKE2PzoeGASN+RU8MENSTiCQ==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 450)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"gztv+GZ+o4g9zTEYV3Yr9oZwScz7BIcPDTenJNF1s/heXnE8FOIVMhAQnU95HUnKE2PzoeGASN+RU8MENSTiCQ==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1326)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 197)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 4082)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:05:03 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 616)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 2389)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 731)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 92)
+Completed 200 OK in 30ms (Views: 9.3ms | ActiveRecord: 3.3ms | Allocations: 14847)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2019-12-24 01:05:04 -0300
+Started GET "/" for 127.0.0.1 at 2019-12-24 01:06:33 -0300
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 519)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:06:33 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 596)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 2199)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 684)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 92)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 7433)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2019-12-24 01:06:35 -0300
+Started GET "/" for 127.0.0.1 at 2019-12-24 01:06:53 -0300
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 429)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:06:53 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 207)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1326)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 211)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4221)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-12-24 01:06:58 -0300
+Processing by Users::RegistrationsController#new as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 4332)
+
+
+  
+NameError (undefined local variable or method `data' for #<Class:0x0000562c9b791788>):
+  
+app/models/user.rb:56:in `block in new_with_session'
+app/models/user.rb:55:in `tap'
+app/models/user.rb:55:in `new_with_session'
+app/controllers/users/registrations_controller.rb:9:in `new'
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-12-24 01:07:38 -0300
+Processing by Users::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 6.9ms | Allocations: 211)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 174)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 103.8ms | Allocations: 2484)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 260)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 118ms (Views: 108.6ms | ActiveRecord: 2.4ms | Allocations: 14013)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-12-24 01:07:51 -0300
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"gRxRzyYYaRQ6PnxLkzqiQf0ynntPz9oinxcpovdmnmpceU8LVITfrhfj0By9UcB9aCEkFlVLFfIDc02CEzfPmw==", "user"=>{"name"=>"marcos", "email"=>"marcos@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Exists? (49.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "marcos@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 223)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1654)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 208)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 358ms (Views: 7.7ms | ActiveRecord: 49.8ms | Allocations: 11336)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-12-24 01:08:05 -0300
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ag8PDUgnAFRkT1psxMn/PkhyfCZQzlSOGpPoPJMearS3ahHJOru27kmS9jvqop0C3WHGS0pKm16G94wcd087RQ==", "user"=>{"name"=>"marcos", "email"=>"marcos@example.com.br", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "marcos@example.com.br"], ["LIMIT", 1]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[36mUser Create (81.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["email", "marcos@example.com.br"], ["encrypted_password", "$2a$11$W4ycJbeVUcWt5Dujj1Ro/ukg6GrMlIGut5VMWSo.LO7rbbeCyfc3u"], ["created_at", "2019-12-24 04:08:05.371251"], ["updated_at", "2019-12-24 04:08:05.371251"], ["name", "marcos"]]
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+  [1m[35m (21.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users/registrations_controller.rb:14:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 231ms (ActiveRecord: 103.9ms | Allocations: 5096)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-24 01:08:05 -0300
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7:in `require_login'
+  [1m[36mFriendship Load (2.2ms)[0m  [1m[34mSELECT "friendships".* FROM "friendships" WHERE "friendships"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/models/user.rb:20:in `map'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 19.6ms | Allocations: 800)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/posts/_post.html.erb:1
+  [1m[36mPost Load (15.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/posts/_post.html.erb:3
+  Rendered posts/_post.html.erb (Duration: 37.6ms | Allocations: 2517)
+  Rendered posts/_like.html.erb (Duration: 6.8ms | Allocations: 246)
+  Rendered posts/_comment.html.erb (Duration: 0.9ms | Allocations: 254)
+  Rendered posts/_new_comment.html.erb (Duration: 1.2ms | Allocations: 292)
+  Rendered posts/_feed.html.erb (Duration: 50.3ms | Allocations: 4297)
+  Rendered posts/index.html.erb within layouts/application (Duration: 99.5ms | Allocations: 5650)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (44.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/helpers/application_helper.rb:5:in `notice_count'
+  Rendered layouts/_header.html.erb (Duration: 88.0ms | Allocations: 2918)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 483ms (Views: 137.5ms | ActiveRecord: 74.2ms | Allocations: 30082)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-12-24 01:08:08 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"l4ourRtfeq50Yppue8ViLfVXyovvsHVNRggbf5XDcXdK7zBpacPMFFm/NjlVrgARYERw5vU0up3abH9fcZIghg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 88ms (ActiveRecord: 0.3ms | Allocations: 2856)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-24 01:08:08 -0300
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 411)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 01:08:08 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 221)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1351)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 211)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 4401)
+
+
