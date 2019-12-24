@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
 
+  get '/', to: 'users/sign_in'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'users/registrations' }
 
 
