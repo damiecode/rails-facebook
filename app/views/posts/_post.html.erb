@@ -1,20 +1,44 @@
-<% @users.each do |u|%>
-  <%if current_user == u || @friends.include?(u)%>
-    <% u.posts.each do |p| %>
-      <li class='card mb-4 bg-white' style="width: 35rem;">
-        <div class='card-body mx-auto'>
-          <div class = 'card-text'> 
-            <span class='font-weight-bold feed-text card-title text-primary'>
-              <%= u.name %>
-            </span><br>
-            <p class='text-dark'>
-              <%= p.content %>
-            </p>
-        </div>
-        <%= render 'like' %>
-      <%= render 'comment' %>
-      <%= render 'new_comment' %>
-      </li>
+<% feed.each do |u| %>
+  <li class='card mb-4 bg-white' style="width: 35rem;">
+    <div class='card-body mx-auto'>
+      <div class = 'card-text'> 
+        <span class='font-weight-bold feed-text card-title text-primary'>
+          <%= u.name %>
+        </span><br>
+        <p class='text-dark'>
+          <%= @feed.content %>
+        </p>
+    </div>
+    <% if @feed.likes %>
+      <%= pluralize(feed.likes.count, 'like')%>
+    <% end %>
+    <% if liked?(@feed.id) %>
+      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: @feed.id}), method: :post%>
     <%end%>
-  <%end%>
+    <% if @feed.comments%>
+      <ul>
+        <% @feed.comments.each do |c|%>
+          <li class='text-dark'><%= c.content%></li>
+        <%end%>
+      </ul> 
+    <%end%>
+    <div class='row'>
+      <%= form_for(:comment, :url => { :action => :create, :controller => :comments } )  do |f| %>
+        <div class='form-group row'>
+          <div class='col'>
+            <%= f.hidden_field :post_id, value: @feed.id %>
+            <%= f.text_area :content,rows: 2,cols: 80, class: 'form-control rounded-pill text-center', placeholder: 'Write a comment', autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <%= f.submit class: 'btn btn-primary mt-1 text-center'%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </li>
 <%end%>
+<div>
+  <%= render @feed %>
+</div>
