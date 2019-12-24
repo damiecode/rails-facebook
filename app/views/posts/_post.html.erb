@@ -1,5 +1,5 @@
 <% @users.each do |u|%>
-  <%if @user == u || @friends.include?(u)%>
+  <%if current_user == u || @friends.include?(u)%>
     <% u.posts.each do |p| %>
       <li class='card mb-4 bg-white' style="width: 35rem;">
         <div class='card-body mx-auto'>
@@ -11,6 +11,9 @@
               <%= p.content %>
             </p>
         </div>
+        <%= render 'like' %>
+      <%= render 'comment' %>
+      <%= render 'new_comment' %>
       </li>
     <%end%>
   <%end%>
