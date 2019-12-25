@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @users = User.all
     @comment = Comment.create
-    @friends = @user.friends
+    @friends = current_user.friends
     @posts = current_user.feed
   end
 
