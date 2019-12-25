@@ -1,23 +1,23 @@
-<% feed.each do |u| %>
+<% @posts.each do |u| %>
   <li class='card mb-4 bg-white' style="width: 35rem;">
     <div class='card-body mx-auto'>
       <div class = 'card-text'> 
         <span class='font-weight-bold feed-text card-title text-primary'>
-          <%= u.name %>
+          <%= u.user.name %>
         </span><br>
         <p class='text-dark'>
-          <%= @feed.content %>
+          <%= u.content %>
         </p>
     </div>
-    <% if @feed.likes %>
-      <%= pluralize(feed.likes.count, 'like')%>
+    <% if u.likes %>
+      <%= pluralize(u.likes.count, 'like')%>
     <% end %>
-    <% if liked?(@feed.id) %>
-      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: @feed.id}), method: :post%>
+    <% if liked?(u.id) %>
+      <%= button_to 'Like', likes_path(like: {user_id: current_user.id,post_id: u.id}), method: :post%>
     <%end%>
-    <% if @feed.comments%>
+    <% if u.comments%>
       <ul>
-        <% @feed.comments.each do |c|%>
+        <% u.comments.each do |c|%>
           <li class='text-dark'><%= c.content%></li>
         <%end%>
       </ul> 
@@ -26,7 +26,7 @@
       <%= form_for(:comment, :url => { :action => :create, :controller => :comments } )  do |f| %>
         <div class='form-group row'>
           <div class='col'>
-            <%= f.hidden_field :post_id, value: @feed.id %>
+            <%= f.hidden_field :post_id, value: u.id %>
             <%= f.text_area :content,rows: 2,cols: 80, class: 'form-control rounded-pill text-center', placeholder: 'Write a comment', autofocus: true %>
           </div>
         </div>
@@ -40,5 +40,4 @@
   </li>
 <%end%>
 <div>
-  <%= render @feed %>
 </div>

@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @users = User.all
     @comment = Comment.create
     @friends = current_user.friends
+    @posts = current_user.feed
   end
 
   def new
