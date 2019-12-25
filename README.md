@@ -17,6 +17,11 @@ Can be found on:  ( <a href="https://www.theodinproject.com/courses/ruby-on-rail
 
 ### Project specific
 
+![rails-facebook login](login.png "Rails-facebook login")
+
+
+![rails-facebook home](home.png "Rails-facebook home")
+
 ###  Ruby version
 
 rbenv 2.6.5
@@ -65,6 +70,9 @@ $ bundle insatll
 To start the server: `rails server`
 
 > visit: http://localhost:3000 to use the app
+
+For Live version
+> visit:  https://rails-fb.herokuapp.com
 
 ​## Authors
 ​
