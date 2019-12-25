@@ -34,4 +34,8 @@ class User < ApplicationRecord
   def friend?(user)
     friends.include?(user)
   end
+
+  def feed
+    Post.where(user_id: friends.map(&:id) + [id])
+  end
 end
