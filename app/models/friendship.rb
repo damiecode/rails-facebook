@@ -3,7 +3,6 @@
 class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User'
-
   validate :avoid_self_friendship
   validate :duplicate
 
