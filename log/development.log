@@ -777,6 +777,7 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 4401)
 
 
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2019-12-24 10:38:22 +0100
   [1m[35m (29.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 >>>>>>> milestone-7
@@ -11720,3 +11721,46 @@ FOREIGN KEY ("user_id")
   [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 >>>>>>> milestone-7
+=======
+Started GET "/" for 127.0.0.1 at 2019-12-24 10:34:37 -0300
+  [1m[35m (26.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 478)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 10:34:38 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 24.8ms | Allocations: 730)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 374.0ms | Allocations: 5332)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 14.0ms | Allocations: 790)
+  Rendered layouts/_footer.html.erb (Duration: 5.5ms | Allocations: 95)
+Completed 200 OK in 677ms (Views: 549.9ms | ActiveRecord: 102.1ms | Allocations: 18836)
+
+
+Started POST "/users/auth/facebook" for 127.0.0.1 at 2019-12-24 10:34:43 -0300
+Started GET "/" for 127.0.0.1 at 2019-12-24 10:46:34 -0300
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 77ms (ActiveRecord: 0.0ms | Allocations: 612)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-12-24 10:46:37 -0300
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 729)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.3ms | Allocations: 5316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 790)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 95)
+Completed 200 OK in 45ms (Views: 18.8ms | ActiveRecord: 7.9ms | Allocations: 19754)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-12-24 10:46:52 -0300
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2019-12-24 10:46:52 -0300
+>>>>>>> milestone-8
