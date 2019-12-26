@@ -72,7 +72,7 @@ To start the server: `rails server`
 > visit: http://localhost:3000 to use the app
 
 For Live version
-> visit:  https://rails-fb.herokuapp.com
+> visit:  https://rails-fakebook-project.herokuapp.com
 
 ​## Authors
 ​
