@@ -1,3 +1,5 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v5.0&appId=852735265076738&autoLogAppEvents=1"></script>
 <div class='row'>
   <h2 class='text-dark'>Log in</h2>
 </div>
@@ -25,7 +27,7 @@
     </div>
   <% end %>
   <div class='d-block'>
-      <%= button_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary mt-5 fb-btn" %>
+      <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
   </div>
 </div>
 <div class='row mx-auto'>
