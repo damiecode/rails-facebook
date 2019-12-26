@@ -1,0 +1,8 @@
+<div>
+  <ul>
+  <li><%=@post.user.name%>
+  <li><%= @post.content%></li>
+</div>
+<div>
+  <%= link_to  "Delete post", @post, method: :delete %>
+</div>

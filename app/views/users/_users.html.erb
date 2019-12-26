@@ -1,0 +1,40 @@
+<ul>
+  <% @users.each do |u| %>
+    <li class='text-dark'><%= u.name %></li><br>
+    <% if @pending_friends.include?(u)%>
+      <%=button_to 'Cancel request',  {:controller => :friendships, :action => 'destroy',
+                                             :id => ([find_friendship(current_user, u),
+                                                     find_friendship(u, current_user)])} , 
+                                             :method => :delete,
+                                             :class => 'btn btn-primary mt-1',
+                                              data: { confirm: "Are you sure?" } %>
+    <%elsif @requests.include?(u)%>
+      <%=button_to 'Accept',  {:controller => :friendships, :action => 'update',
+                                             :id => (find_friendship(current_user, u) || 
+                                                     find_friendship(u, current_user))} , 
+                                             :method => :patch,
+                                             :class => 'btn btn-primary mt-1',
+                                              data: { confirm: "Are you sure?" } %>
+      
+      <%=button_to 'Decline',  {:controller => :friendships, :action => 'destroy',
+                                             :id => ([find_friendship(current_user, u), 
+                                                     find_friendship(u, current_user)]) }, 
+                                             :method => :delete,
+                                             :class => 'btn btn-primary mt-1',
+                                              data: { confirm: "Are you sure?" } %>
+    <%elsif !@friends.include?(u)%>
+      <%=button_to 'Request friendship',  friendships_path(friendship: {friend_id: u.id}),
+                                            method: :post,
+                                            class: 'btn btn-primary mt-1'%>
+    <%else%>
+      <%=button_to 'Delete friendship',  {:controller => :friendships, :action => 'destroy',
+                                             :id => ([find_friendship(current_user, u), 
+                                                     find_friendship(u, current_user)]) }, 
+                                             :method => :delete,
+                                             :class => 'btn btn-primary mt-1',
+                                              data: { confirm: "Are you sure?" } %>
+    <%end%>
+    <br><br>
+  <%end%>
+</ul>
+

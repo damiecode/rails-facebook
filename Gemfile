@@ -5,10 +5,22 @@ git_source(:github) { |_repo| 'https://github.com/marcos-medeiros/rails-facebook
 
 ruby '2.6.5'
 
+gem 'rack', '>= 2.0.8'
+
+# Handles authentication and login methods
+gem 'devise'
+# Handles sign in with facebook account
+gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# Use bootstrap for styles
+gem 'bootstrap', '~>4.3.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+# Image handling
+gem 'carrierwave', '~> 2.0', '>= 2.0.2'
+gem 'mini_magick', '~> 4.9', '>= 4.9.5'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -33,6 +45,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'database_cleaner'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -54,3 +68,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'rails_12factor', group: :production
