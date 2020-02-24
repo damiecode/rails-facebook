@@ -78,5 +78,5 @@ For Live version
 ​
 This project was executed by:
 ​
-- [Marcos Medeiros](https://www.linkedin.com/in/marcos-medeiros-6a079a18a/)
+- [Marcos Medeiros](https://www.linkedin.com/in/marcosmedeiros-dev/)
 - [Damilola Ale](https://www.linkedin.com/in/damiecode/)
