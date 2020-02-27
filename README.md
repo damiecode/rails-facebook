@@ -102,4 +102,4 @@ This project was executed by:
 - Recieve notifications for posts from friends
 - Forgot Password
 - Account activation
-- Photo/Video uplaod in posts
+- Photo/Video upload in posts
