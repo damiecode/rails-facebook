@@ -78,5 +78,28 @@ For Live version
 ​
 This project was executed by:
 ​
+👤 **Marcos Medeioros **
+
 - [Marcos Medeiros](https://www.linkedin.com/in/marcosmedeiros-dev/)
-- [Damilola Ale](https://www.linkedin.com/in/damiecode/)
+
+👤 **Damilola Ale**
+
+- Email: _codenlyn@gmail.com_
+- Github: [@damiecode](https://github.com/damiecode)
+- Twitter: [@iamlildamski](https://twitter.com/iamlildamski)
+- Linkedin: [Damilola Ale](https://www.linkedin.com/in/damiecode/)
+
+## Contributing
+
+1. Fork it (https://github.com/damiecode/rails-fakebook/fork)
+2. Create your feature branch (git checkout -b feature/[choose-a-name])
+3. Commit your changes (git commit -am 'what this commit will fix/add')
+4. Push to the branch (git push origin feature/[chosen-name])
+5. Create a new Pull Request
+
+## Future features
+- Improve UI
+- Recieve notifications for posts from friends
+- Forgot Password
+- Account activation
+- Photo/Video uplaod in posts
