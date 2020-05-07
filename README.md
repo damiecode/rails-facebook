@@ -69,6 +69,8 @@ To start the server: `rails server`
 
 > visit: http://localhost:3000 to use the app
 
+To run tests: `rails test`
+
 For Live version
 > visit:  https://rails-fakebook-project.herokuapp.com
 
