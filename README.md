@@ -74,8 +74,6 @@ For Live version
 
 ## Authors
 
-This project was executed by:
-
 👤 **Marcos Medeioros **
 
 - [Marcos Medeiros](https://www.linkedin.com/in/marcosmedeiros-dev/)
