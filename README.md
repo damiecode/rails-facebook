@@ -1,9 +1,7 @@
 # Microverse Project Title - Final Project [Collaborative Project]
-Ruby on Rails
 
 ### Introduction.
-This project requests you to build a Facebook-like social network application.
-
+A Facebook-like social network application. Features include the ability to create posts, comments, send friend requests, and upload images.
 
 ## Functionalities
 
