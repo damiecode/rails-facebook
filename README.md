@@ -72,10 +72,10 @@ To start the server: `rails server`
 For Live version
 > visit:  https://rails-fakebook-project.herokuapp.com
 
-​## Authors
-​
+## Authors
+
 This project was executed by:
-​
+
 👤 **Marcos Medeioros **
 
 - [Marcos Medeiros](https://www.linkedin.com/in/marcosmedeiros-dev/)
