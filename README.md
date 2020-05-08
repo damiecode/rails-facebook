@@ -76,7 +76,7 @@ For Live version
 
 ## Authors
 
-👤 **Marcos Medeioros **
+👤 **Marcos Medeioros**
 
 - [Marcos Medeiros](https://www.linkedin.com/in/marcosmedeiros-dev/)
 
